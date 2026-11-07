@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPredict AI | About Project</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #EAF4FF, #DDF5F3);
+    color: #102A43;
+}
+
+header {
+    background: #102A43;
+    color: white;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 span { color: #14B8A6; }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover { color: #14B8A6; }
+
+.hero {
+    background: linear-gradient(120deg, #102A43, #164E63);
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #D9EAF7;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 22px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    border: 1px solid #D5E8F5;
+    box-shadow: 0 8px 22px rgba(16,42,67,0.08);
+}
+
+.card h2 {
+    color: #0F766E;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #526D82;
+    line-height: 1.8;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tech-card {
+    background: white;
+    padding: 23px;
+    border-radius: 14px;
+    border: 1px solid #D5E8F5;
+    box-shadow: 0 5px 18px rgba(16,42,67,0.06);
+}
+
+.tech-card h3 {
+    color: #0F766E;
+    margin-bottom: 10px;
+}
+
+.tech-card p {
+    color: #526D82;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+ul {
+    padding-left: 22px;
+    color: #526D82;
+    line-height: 2;
+}
+
+.note {
+    background: #E5F8F5;
+    border-left: 5px solid #14B8A6;
+    padding: 20px;
+    border-radius: 10px;
+    color: #0F766E;
+    line-height: 1.7;
+}
+
+footer {
+    background: #102A43;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    line-height: 1.8;
+}
+
+footer p { color: #D9EAF7; }
+
+@media(max-width: 650px) {
+    .grid { grid-template-columns: 1fr; }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 7px;
+        display: inline-block;
+    }
+
+    .hero h1 { font-size: 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>🎓 EduPredict <span>AI</span></h2>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>About EduPredict AI</h1>
+    <p>Learn about the project, its objectives and technologies.</p>
+</section>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📌 Project Overview</h2>
+        <p>
+            EduPredict AI is a Machine Learning-based web application
+            designed to estimate student academic performance.
+            It uses study hours, attendance, previous marks and
+            assignment marks as input features to predict expected
+            academic marks.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🎯 Project Objective</h2>
+        <p>
+            The main objective is to demonstrate how Machine Learning
+            can analyze academic information and estimate student
+            performance. The system also provides a simple web
+            interface to make predictions easily.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💡 Problem Statement</h2>
+        <p>
+            Understanding academic performance involves considering
+            several factors. This project demonstrates a simple
+            automated approach to estimating expected marks from
+            selected academic details.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💻 Technologies Used</h2>
+
+        <div class="grid">
+
+            <div class="tech-card">
+                <h3>🐍 Python</h3>
+                <p>Used for data processing and prediction logic.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>🤖 Scikit-learn</h3>
+                <p>Used to train the Random Forest Regression model.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>🌐 Flask</h3>
+                <p>Connects the Machine Learning model with the web application.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>🎨 HTML & CSS</h3>
+                <p>Used to build and style the website interface.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>📊 Pandas</h3>
+                <p>Used to load and manage the project dataset.</p>
+            </div>
+
+            <div class="tech-card">
+                <h3>🌲 Random Forest</h3>
+                <p>The regression algorithm used to estimate student marks.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>⚠️ Project Limitation</h2>
+        <div class="note">
+            This project uses a small sample synthetic dataset
+            for demonstration and learning purposes. Its predictions
+            are estimates and should not be treated as official
+            academic results. Testing with real, independently
+            collected student data is needed for meaningful evaluation.
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <h3>🎓 EduPredict AI</h3>
+    <p>Student Academic Performance Prediction Using Machine Learning</p>
+</footer>
+
+</body>
+</html>

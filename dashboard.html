@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPredict AI | Analytics Dashboard</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #081827;
+    color: #ffffff;
+}
+
+header {
+    background: #102A43;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    border-bottom: 1px solid #24445F;
+}
+
+.logo {
+    color: #5EEAD4;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+nav a {
+    color: #DCEAF5;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a.active {
+    color: #5EEAD4;
+}
+
+.container {
+    width: 88%;
+    max-width: 1200px;
+    margin: 45px auto;
+}
+
+.welcome {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.tag {
+    display: inline-block;
+    background: #173F50;
+    color: #5EEAD4;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 17px;
+}
+
+.welcome h1 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.welcome h1 span {
+    color: #2DD4BF;
+}
+
+.welcome p {
+    color: #B9CDDC;
+    line-height: 1.8;
+    max-width: 650px;
+}
+
+.primary-btn {
+    display: inline-block;
+    background: #14B8A6;
+    color: #06252D;
+    padding: 13px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #5EEAD4;
+    transform: translateY(-2px);
+}
+
+/* OVERVIEW CARDS */
+
+.section-heading {
+    font-size: 21px;
+    margin-bottom: 20px;
+}
+
+.overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: linear-gradient(145deg, #102A43, #0D2338);
+    border: 1px solid #24445F;
+    padding: 23px;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    border-color: #2DD4BF;
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.stat-number {
+    font-size: 29px;
+    color: #5EEAD4;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.stat-card p {
+    color: #B9CDDC;
+    font-size: 13px;
+}
+
+/* MAIN CONTENT */
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.panel {
+    background: #102A43;
+    border: 1px solid #24445F;
+    border-radius: 15px;
+    padding: 27px;
+}
+
+.panel h2 {
+    color: #5EEAD4;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.panel-description {
+    color: #B9CDDC;
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.input-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.input-item {
+    background: #0A1D2E;
+    border: 1px solid #29465D;
+    padding: 17px;
+    border-radius: 10px;
+}
+
+.input-item span {
+    font-size: 22px;
+}
+
+.input-item h3 {
+    color: #5EEAD4;
+    font-size: 15px;
+    margin: 10px 0 6px;
+}
+
+.input-item p {
+    color: #B9CDDC;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* WORKFLOW */
+
+.workflow {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.workflow-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.step-number {
+    min-width: 38px;
+    height: 38px;
+    background: #173F50;
+    color: #5EEAD4;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.workflow-item h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.workflow-item p {
+    color: #B9CDDC;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* BOTTOM SECTION */
+
+.bottom-section {
+    background: linear-gradient(110deg, #123B4A, #102A43);
+    border: 1px solid #28616A;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.bottom-section h2 {
+    color: #5EEAD4;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.bottom-section p {
+    color: #D0E1EA;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 650px;
+}
+
+footer {
+    background: #06121F;
+    border-top: 1px solid #24445F;
+    text-align: center;
+    padding: 23px;
+    margin-top: 65px;
+    color: #9FB4C8;
+    font-size: 13px;
+}
+
+@media(max-width: 900px) {
+    .overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .container {
+        width: 90%;
+        margin: 30px auto;
+    }
+
+    .welcome h1 {
+        font-size: 28px;
+    }
+
+    .overview,
+    .input-list {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-section {
+        padding: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">✦ EduPredict AI</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard" class="active">Dashboard</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <div class="tag">✦ ACADEMIC ANALYTICS PLATFORM</div>
+
+            <h1>Student Analytics <span>Dashboard</span></h1>
+
+            <p>
+                Monitor the important academic factors used by
+                EduPredict AI. Explore the machine learning model
+                and generate student performance predictions.
+            </p>
+        </div>
+
+        <a href="/prediction" class="primary-btn">
+            ✦ Generate Prediction →
+        </a>
+    </section>
+
+    <h2 class="section-heading">System Overview</h2>
+
+    <section class="overview">
+
+        <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-number">04</div>
+            <p>Academic Input Factors</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🤖</div>
+            <div class="stat-number">01</div>
+            <p>Machine Learning Model</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">100</div>
+            <div class="stat-number"> /100</div>
+            <p>Prediction Marks Scale</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📄</div>
+            <div class="stat-number">05</div>
+            <p>Website Sections</p>
+        </div>
+
+    </section>
+
+    <h2 class="section-heading">Academic Analysis</h2>
+
+    <section class="main-grid">
+
+        <div class="panel">
+            <h2>📚 Academic Input Factors</h2>
+
+            <p class="panel-description">
+                The prediction system uses the following four
+                academic factors to estimate student performance.
+            </p>
+
+            <div class="input-list">
+
+                <div class="input-item">
+                    <span>📖</span>
+                    <h3>Study Hours</h3>
+                    <p>Daily study time entered by the student.</p>
+                </div>
+
+                <div class="input-item">
+                    <span>📅</span>
+                    <h3>Attendance</h3>
+                    <p>Student attendance percentage.</p>
+                </div>
+
+                <div class="input-item">
+                    <span>📝</span>
+                    <h3>Previous Marks</h3>
+                    <p>Marks from previous academic assessments.</p>
+                </div>
+
+                <div class="input-item">
+                    <span>📑</span>
+                    <h3>Assignment Marks</h3>
+                    <p>Marks obtained in academic assignments.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>⚙️ Prediction Workflow</h2>
+
+            <p class="panel-description">
+                Understand how the system processes student
+                information and generates a prediction.
+            </p>
+
+            <div class="workflow">
+
+                <div class="workflow-item">
+                    <div class="step-number">01</div>
+                    <div>
+                        <h3>Enter Student Details</h3>
+                        <p>Provide the four academic input values.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-item">
+                    <div class="step-number">02</div>
+                    <div>
+                        <h3>Machine Learning Processing</h3>
+                        <p>The trained Random Forest model processes the inputs.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-item">
+                    <div class="step-number">03</div>
+                    <div>
+                        <h3>Performance Prediction</h3>
+                        <p>The model estimates the student's final marks.</p>
+                    </div>
+                </div>
+
+                <div class="workflow-item">
+                    <div class="step-number">04</div>
+                    <div>
+                        <h3>View Prediction Result</h3>
+                        <p>See the estimated marks and performance category.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="bottom-section">
+        <div>
+            <h2>Ready to Analyze Student Performance?</h2>
+            <p>
+                Enter academic details and use the machine learning
+                model to generate an estimated performance result.
+            </p>
+        </div>
+
+        <a href="/prediction" class="primary-btn">
+            Start Analysis →
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 EduPredict AI | Student Academic Performance Prediction
+</footer>
+
+</body>
+</html>

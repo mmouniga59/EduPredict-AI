@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduPredict AI | Home</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #081827;
+            color: #f1f5f9;
+        }
+
+        header {
+            background: #102A43;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid #24445f;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2DD4BF;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e2e8f0;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #5EEAD4;
+        }
+
+        .hero {
+            width: 86%;
+            max-width: 1200px;
+            margin: auto;
+            min-height: 530px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+            padding: 65px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #123d4a;
+            color: #5EEAD4;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #2DD4BF;
+        }
+
+        .hero p {
+            color: #b8cce0;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 560px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 23px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #14B8A6;
+            color: #06252d;
+        }
+
+        .primary:hover {
+            background: #5EEAD4;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            border: 1px solid #2DD4BF;
+            color: #5EEAD4;
+        }
+
+        .secondary:hover {
+            background: #123d4a;
+        }
+
+        .hero-visual {
+            background: linear-gradient(145deg, #153b56, #102A43);
+            border: 1px solid #28516b;
+            border-radius: 25px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .hero-icon {
+            font-size: 90px;
+            margin-bottom: 25px;
+        }
+
+        .hero-visual h2 {
+            color: #5EEAD4;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .hero-visual p {
+            margin: auto;
+            font-size: 14px;
+        }
+
+        .features {
+            background: #0c2032;
+            padding: 65px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 span {
+            color: #2DD4BF;
+        }
+
+        .section-heading p {
+            color: #b8cce0;
+            line-height: 1.7;
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: #102A43;
+            border: 1px solid #24445f;
+            border-radius: 15px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #2DD4BF;
+        }
+
+        .feature-card .icon {
+            font-size: 35px;
+            margin-bottom: 18px;
+        }
+
+        .feature-card h3 {
+            color: #5EEAD4;
+            margin-bottom: 12px;
+            font-size: 19px;
+        }
+
+        .feature-card p {
+            color: #c4d5e5;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .cta {
+            width: 86%;
+            max-width: 1200px;
+            margin: 65px auto;
+            padding: 45px 25px;
+            text-align: center;
+            background: linear-gradient(120deg, #123d4a, #102A43);
+            border: 1px solid #28516b;
+            border-radius: 20px;
+        }
+
+        .cta h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #c4d5e5;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: #102A43;
+            border-top: 1px solid #24445f;
+            text-align: center;
+            padding: 25px;
+            color: #9fb4c8;
+            font-size: 13px;
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            .hero {
+                width: 90%;
+                padding: 45px 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">✦ EduPredict AI</div>
+
+    <nav>
+        <a href="/" class="active">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="tag">✦ STUDENT ANALYTICS</div>
+
+        <h1>
+            Student Academic
+            <span>Performance Prediction</span>
+        </h1>
+
+        <p>
+            Explore student academic performance using
+            Machine Learning. Enter academic details and
+            generate an estimated performance result through
+            the EduPredict AI system.
+        </p>
+
+        <div class="buttons">
+            <a href="/prediction" class="btn primary">
+                Start Prediction →
+            </a>
+
+            <a href="/dashboard" class="btn secondary">
+                Explore Dashboard
+            </a>
+        </div>
+
+    </div>
+
+    <div class="hero-visual">
+
+        <div class="hero-icon">🎓</div>
+
+        <h2>AI Powered Learning</h2>
+
+        <p>
+            Machine Learning based academic performance
+            estimation for educational purposes.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="features">
+
+    <div class="section-heading">
+        <h2>Explore <span>Our Features</span></h2>
+        <p>Discover the main features of the EduPredict AI system.</p>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <div class="icon">👨‍🎓</div>
+            <h3>Student Details</h3>
+            <p>
+                Enter study hours, attendance percentage,
+                previous marks and assignment marks.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🤖</div>
+            <h3>Machine Learning</h3>
+            <p>
+                Uses a Random Forest machine learning model
+                to estimate academic performance.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Performance Result</h3>
+            <p>
+                View estimated academic marks and a
+                performance category based on the inputs.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <h2>Ready to Explore EduPredict AI?</h2>
+
+    <p>
+        Enter student academic details and explore
+        the machine learning prediction system.
+    </p>
+
+    <a href="/prediction" class="btn primary">
+        Go to Prediction →
+    </a>
+
+</section>
+
+<footer>
+    © 2026 EduPredict AI | Student Academic Performance Prediction
+</footer>
+
+</body>
+</html>

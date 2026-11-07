@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPredict AI | Prediction</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: #081827;
+    color: #EAF4F4;
+    min-height: 100vh;
+}
+
+header {
+    background: #102A43;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #5EEAD4;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #D9E6EF;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #5EEAD4;
+}
+
+.container {
+    width: 86%;
+    max-width: 1200px;
+    margin: 45px auto;
+}
+
+.page-heading {
+    margin-bottom: 30px;
+}
+
+.page-heading small {
+    color: #5EEAD4;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.page-heading h1 {
+    font-size: 34px;
+    margin: 12px 0;
+}
+
+.page-heading p {
+    color: #AFC2D2;
+    line-height: 1.7;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.info-panel,
+.form-panel,
+.result-panel {
+    background: #102A43;
+    border: 1px solid #24445E;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.info-panel h2,
+.form-panel h2 {
+    color: #5EEAD4;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+.info-panel > p {
+    color: #B9CAD8;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+.step {
+    display: flex;
+    gap: 15px;
+    margin: 22px 0;
+}
+
+.step-number {
+    min-width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #14B8A6;
+    color: #081827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.step h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.step p {
+    color: #AFC2D2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.note {
+    margin-top: 25px;
+    padding: 15px;
+    background: #153B4C;
+    border-left: 4px solid #14B8A6;
+    border-radius: 8px;
+    color: #C9E5E5;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px;
+    background: #081827;
+    border: 1px solid #34546B;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #14B8A6;
+}
+
+.form-group input::placeholder {
+    color: #7890A4;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #14B8A6;
+    color: #081827;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5EEAD4;
+    transform: translateY(-2px);
+}
+
+.result-panel {
+    margin-top: 28px;
+    border-color: #14B8A6;
+}
+
+.result-panel h2 {
+    color: #5EEAD4;
+    margin-bottom: 18px;
+}
+
+.result-score {
+    font-size: 48px;
+    font-weight: bold;
+    color: #5EEAD4;
+    margin: 12px 0;
+}
+
+.result-score span {
+    font-size: 18px;
+    color: #AFC2D2;
+}
+
+.performance {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #174D50;
+    color: #5EEAD4;
+    border-radius: 20px;
+    margin: 8px 0 15px;
+    font-weight: bold;
+}
+
+.result-message {
+    color: #D5E5ED;
+    line-height: 1.6;
+}
+
+.progress-bg {
+    width: 100%;
+    height: 12px;
+    background: #29445A;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 18px 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #14B8A6;
+    border-radius: 20px;
+}
+
+.insight {
+    margin-top: 22px;
+    padding: 20px;
+    background: #153B4C;
+    border-radius: 10px;
+}
+
+.insight h3 {
+    color: #5EEAD4;
+    margin-bottom: 12px;
+}
+
+.insight p {
+    color: #C8D9E5;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 8px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8299AA;
+    font-size: 13px;
+}
+
+@media(max-width: 850px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    .page-heading h1 {
+        font-size: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">EduPredict AI</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/prediction" class="active">Prediction</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/about">About</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="page-heading">
+        <small>STUDENT ANALYTICS PLATFORM</small>
+        <h1>Academic Performance Prediction</h1>
+        <p>
+            Enter the student's academic details to get an estimated
+            performance result using our Machine Learning model.
+        </p>
+    </div>
+
+    <div class="main-grid">
+
+        <div class="info-panel">
+            <h2>How Prediction Works</h2>
+
+            <p>
+                EduPredict AI uses a Machine Learning model to analyse
+                academic input details and estimate student performance.
+            </p>
+
+            <div class="step">
+                <div class="step-number">01</div>
+                <div>
+                    <h3>Enter Academic Details</h3>
+                    <p>Provide study hours, attendance and marks information.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">02</div>
+                <div>
+                    <h3>Machine Learning Analysis</h3>
+                    <p>The trained model processes the information provided.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">03</div>
+                <div>
+                    <h3>View Estimated Result</h3>
+                    <p>Get an estimated mark and general learning suggestions.</p>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>Note:</strong> This system provides an estimate
+                based on sample training data. It is not an official
+                academic result.
+            </div>
+        </div>
+
+        <div class="form-panel">
+            <h2>Student Assessment</h2>
+
+            <form action="/predict" method="POST">
+
+                <div class="form-group">
+                    <label>Study Hours (per day)</label>
+                    <input
+                        type="number"
+                        name="study_hours"
+                        min="0"
+                        max="24"
+                        step="0.1"
+                        placeholder="Example: 5"
+                        value="{{ study_hours if study_hours is defined else '' }}"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Attendance (%)</label>
+                    <input
+                        type="number"
+                        name="attendance"
+                        min="0"
+                        max="100"
+                        step="0.1"
+                        placeholder="Example: 85"
+                        value="{{ attendance if attendance is defined else '' }}"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Previous Marks</label>
+                    <input
+                        type="number"
+                        name="previous_marks"
+                        min="0"
+                        max="100"
+                        step="0.1"
+                        placeholder="Example: 75"
+                        value="{{ previous_marks if previous_marks is defined else '' }}"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>Assignment Marks</label>
+                    <input
+                        type="number"
+                        name="assignment_marks"
+                        min="0"
+                        max="100"
+                        step="0.1"
+                        placeholder="Example: 80"
+                        value="{{ assignment_marks if assignment_marks is defined else '' }}"
+                        required>
+                </div>
+
+                <button type="submit">Analyze My Performance</button>
+
+            </form>
+        </div>
+
+    </div>
+
+    {% if prediction_text is not none %}
+
+    <div class="result-panel">
+
+        <h2>Prediction Result</h2>
+
+        <p>Estimated Academic Marks</p>
+
+        <div class="result-score">
+            {{ prediction_text }} <span>/ 100</span>
+        </div>
+
+        <div class="performance">
+            {{ performance }}
+        </div>
+
+        <p class="result-message">{{ message }}</p>
+
+        <div class="progress-bg">
+            <div class="progress-fill"
+                 style="width: {{ prediction_text }}%;">
+            </div>
+        </div>
+
+        <div class="insight">
+            <h3>Personalized Learning Suggestions</h3>
+
+            {% if study_hours < 2 %}
+                <p>Try building a regular study routine and gradually increase your study time.</p>
+            {% else %}
+                <p>Your study routine is a useful starting point. Continue regular revision.</p>
+            {% endif %}
+
+            {% if attendance < 75 %}
+                <p>Focus on improving class attendance and participating in lessons regularly.</p>
+            {% else %}
+                <p>Maintain your regular class attendance.</p>
+            {% endif %}
+
+            {% if previous_marks < 50 %}
+                <p>Revise previous topics and practice questions to strengthen your understanding.</p>
+            {% endif %}
+
+            {% if assignment_marks < 50 %}
+                <p>Give more attention to assignment preparation and completing practice work.</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+<footer>
+    EduPredict AI | Student Academic Performance Prediction System
+</footer>
+
+</body>
+</html>
